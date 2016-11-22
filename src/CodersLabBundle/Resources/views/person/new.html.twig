@@ -1,0 +1,26 @@
+{% extends 'CodersLabBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Person creation</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('person_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('address_new') }}">Add new address</a>
+        </li>
+
+        <li>
+            <a href="{{ path('email_new') }}">Add new email</a>
+        </li>
+        <li>
+            <a href="{{ path('phonenumber_new') }}">Add new phone number</a>
+        </li>
+    </ul>
+{% endblock %}

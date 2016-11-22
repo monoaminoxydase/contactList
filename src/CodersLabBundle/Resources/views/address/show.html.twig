@@ -1,0 +1,55 @@
+{% extends 'CodersLabBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Address</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Street</th>
+                <td>{{ address.street }}</td>
+            </tr>
+            <tr>
+                <th>House number</th>
+                <td>{{ address.houseNumber }}</td>
+            </tr>
+            <tr>
+                <th>Appartment number</th>
+                <td>{{ address.appartmentNumber }}</td>
+            </tr>
+            <tr>
+                <th>People living at this address</th>
+               {% for persons in address.persons %}
+                <td>{{ persons.name }} {{ persons.surname }}</td>
+                {% endfor %}
+
+
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('address_index') }}">Back to the address list</a>
+        </li>
+        <li>
+            <p><button><a href="{{ path('person_index') }}">Back to the contact list</a></button></p>
+        </li>
+        <li>
+            <a href="{{ path('address_edit', { 'id': address.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

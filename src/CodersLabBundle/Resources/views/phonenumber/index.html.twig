@@ -1,0 +1,47 @@
+{% extends 'CodersLabBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Phonenumbers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Phonenumber</th>
+                <th>Type</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for phoneNumber in phoneNumbers %}
+            <tr>
+                <td><a href="{{ path('phonenumber_show', { 'id': phoneNumber.id }) }}">{{ phoneNumber.id }}</a></td>
+                <td>{{ phoneNumber.phoneNumber }}</td>
+                <td>{{ phoneNumber.type }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('phonenumber_show', { 'id': phoneNumber.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('phonenumber_edit', { 'id': phoneNumber.id }) }}">edit</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('person_new', { 'id': address.id }) }}">Add new person</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('phonenumber_new') }}">Create a new phoneNumber</a>
+        </li>
+        <li>
+            <p><button><a href="{{ path('person_index') }}">Back to the contact list</a></button></p>
+        </li>
+    </ul>
+{% endblock %}

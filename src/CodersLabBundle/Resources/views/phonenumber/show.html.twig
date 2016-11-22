@@ -1,0 +1,39 @@
+{% extends 'CodersLabBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Phonenumber</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ phoneNumber.id }}</td>
+            </tr>
+            <tr>
+                <th>Phonenumber</th>
+                <td>{{ phoneNumber.phoneNumber }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ phoneNumber.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('phonenumber_index') }}">Back to the telephone number list</a>
+        </li>
+        <li>
+            <p><button><a href="{{ path('person_index') }}">Back to the contact list</a></button></p>
+        </li>
+        <li>
+            <a href="{{ path('phonenumber_edit', { 'id': phoneNumber.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

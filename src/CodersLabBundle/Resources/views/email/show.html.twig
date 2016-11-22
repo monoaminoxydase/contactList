@@ -1,0 +1,39 @@
+{% extends 'CodersLabBundle::base.html.twig' %}
+
+{% block body %}
+    <h1>Email</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ email.id }}</td>
+            </tr>
+            <tr>
+                <th>Emailaddress</th>
+                <td>{{ email.emailAddress }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ email.type }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('email_index') }}">Back to the e-mail list</a>
+        </li>
+        <li>
+            <p><button><a href="{{ path('person_index') }}">Back to the contact list</a></button></p>
+        </li>
+        <li>
+            <a href="{{ path('email_edit', { 'id': email.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
